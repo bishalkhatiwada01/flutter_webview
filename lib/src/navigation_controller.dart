@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-enum _MenuOptions { cricHD, totalSports, mtvHustle }
+enum _MenuOptions { cricHD, totalSports, mtvHustleS3, indianIdolS14 }
 
 class NavigationControls extends StatelessWidget {
   const NavigationControls({super.key, required this.controller});
@@ -21,7 +21,9 @@ class NavigationControls extends StatelessWidget {
               await controller.goBack();
             } else {
               messenger.showSnackBar(
-                const SnackBar(content: Text('no back history items')),
+                const SnackBar(
+                  content: Text('no back history items'),
+                ),
               );
               return;
             }
@@ -35,7 +37,9 @@ class NavigationControls extends StatelessWidget {
               await controller.goForward();
             } else {
               messenger.showSnackBar(
-                const SnackBar(content: Text('No forward history item')),
+                const SnackBar(
+                  content: Text('No forward history item'),
+                ),
               );
               return;
             }
@@ -51,16 +55,25 @@ class NavigationControls extends StatelessWidget {
           onSelected: (value) async {
             switch (value) {
               case _MenuOptions.cricHD:
-                await controller
-                    .loadRequest(Uri.parse('https://mc6.crichd.com/'));
+                await controller.loadRequest(
+                  Uri.parse('https://mc6.crichd.com/'),
+                );
                 break;
               case _MenuOptions.totalSports:
-                await controller
-                    .loadRequest(Uri.parse('https://totalsportek.pro/'));
+                await controller.loadRequest(
+                  Uri.parse('https://totalsportek.pro/'),
+                );
                 break;
-              case _MenuOptions.mtvHustle:
-                await controller
-                    .loadRequest(Uri.parse('https://titlii.com/?s=mtv+hustle'));
+              case _MenuOptions.mtvHustleS3:
+                await controller.loadRequest(
+                  Uri.parse('https://titlii.com/?s=mtv+hustle'),
+                );
+                break;
+              case _MenuOptions.indianIdolS14:
+                await controller.loadRequest(
+                  Uri.parse('https://indianidol.net/category/full-episodes/'),
+                );
+                break;
             }
           },
           itemBuilder: (context) => [
@@ -76,9 +89,13 @@ class NavigationControls extends StatelessWidget {
               value: _MenuOptions.totalSports,
             ),
             const PopupMenuItem(
-              value: _MenuOptions.mtvHustle,
-              child: Text('MTV Hustle',style: TextStyle(fontSize: 14)),
+              value: _MenuOptions.mtvHustleS3,
+              child: Text('MTV Hustle S3', style: TextStyle(fontSize: 14)),
             ),
+            const PopupMenuItem(
+              value: _MenuOptions.indianIdolS14,
+              child: Text('Indian Idol S14'),
+            )
           ],
         ),
       ],

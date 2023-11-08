@@ -11,19 +11,38 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 4), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    });
+    Future.delayed(
+      Duration(seconds: 2),
+      () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomePage()));
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(child: Container(child: Image.asset("assets/iii.jpeg"))),
+      backgroundColor: Colors.black54,
+      body: Center(
+        child: Stack(
+          children: [
+            Image.asset(
+              "assets/qq.png",
+              fit: BoxFit.fill,
+            ),
+            Positioned(
+              left: 180,
+              top: 300,
+              child: CircularProgressIndicator(
+                strokeWidth: 4.0,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
