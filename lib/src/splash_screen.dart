@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:watchonline/main.dart';
+import 'package:watchonline/src/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
