@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-enum _MenuOptions { cricHD, totalSports, mtvHustleS3, indianIdolS14 }
+enum _MenuOptions {
+  cricHD,
+  totalSports,
+  mtvHustleS3,
+  indianIdolS14,
+  cineb,
+}
 
 class NavigationControls extends StatelessWidget {
   const NavigationControls({super.key, required this.controller});
@@ -74,6 +80,11 @@ class NavigationControls extends StatelessWidget {
                   Uri.parse('https://indianidol.net/category/full-episodes/'),
                 );
                 break;
+              case _MenuOptions.cineb:
+                await controller.loadRequest(
+                  Uri.parse('https://cineb.rs/'),
+                );
+                break;
             }
           },
           itemBuilder: (context) => [
@@ -85,17 +96,29 @@ class NavigationControls extends StatelessWidget {
               ),
             ),
             const PopupMenuItem(
-              child: Text('TotalSports', style: TextStyle(fontSize: 14)),
+              child: Text(
+                'TotalSports',
+                style: TextStyle(fontSize: 14),
+              ),
               value: _MenuOptions.totalSports,
             ),
             const PopupMenuItem(
               value: _MenuOptions.mtvHustleS3,
-              child: Text('MTV Hustle S3', style: TextStyle(fontSize: 14)),
+              child: Text(
+                'MTV Hustle S3',
+                style: TextStyle(fontSize: 14),
+              ),
             ),
             const PopupMenuItem(
               value: _MenuOptions.indianIdolS14,
               child: Text('Indian Idol S14'),
-            )
+            ),
+            const PopupMenuItem(
+              child: Text(
+                'Movies',
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
           ],
         ),
       ],
