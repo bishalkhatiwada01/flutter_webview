@@ -6,7 +6,7 @@ enum _MenuOptions {
   totalSports,
   mtvHustleS3,
   indianIdolS14,
-  cineb,
+  movie,
 }
 
 class NavigationControls extends StatelessWidget {
@@ -70,19 +70,21 @@ class NavigationControls extends StatelessWidget {
                   Uri.parse('https://totalsportek.pro/'),
                 );
                 break;
-              case _MenuOptions.mtvHustleS3:
+              case _MenuOptions.movie:
                 await controller.loadRequest(
-                  Uri.parse('https://titlii.com/?s=mtv+hustle'),
+                  Uri.parse('https://cineb.rs/'),
                 );
+
                 break;
               case _MenuOptions.indianIdolS14:
                 await controller.loadRequest(
                   Uri.parse('https://indianidol.net/category/full-episodes/'),
                 );
+
                 break;
-              case _MenuOptions.cineb:
+              case _MenuOptions.mtvHustleS3:
                 await controller.loadRequest(
-                  Uri.parse('https://cineb.rs/'),
+                  Uri.parse('https://titlii.com/?s=mtv+hustle'),
                 );
                 break;
             }
@@ -96,26 +98,30 @@ class NavigationControls extends StatelessWidget {
               ),
             ),
             const PopupMenuItem(
+              value: _MenuOptions.totalSports,
               child: Text(
                 'TotalSports',
                 style: TextStyle(fontSize: 14),
               ),
-              value: _MenuOptions.totalSports,
             ),
             const PopupMenuItem(
-              value: _MenuOptions.mtvHustleS3,
+              value: _MenuOptions.movie,
               child: Text(
-                'MTV Hustle S3',
+                'Movies',
                 style: TextStyle(fontSize: 14),
               ),
             ),
             const PopupMenuItem(
               value: _MenuOptions.indianIdolS14,
-              child: Text('Indian Idol S14'),
+              child: Text(
+                'Indian Idol S14',
+                style: TextStyle(fontSize: 14),
+              ),
             ),
             const PopupMenuItem(
+              value: _MenuOptions.mtvHustleS3,
               child: Text(
-                'Movies',
+                'MTV Hustle S3',
                 style: TextStyle(fontSize: 14),
               ),
             ),
