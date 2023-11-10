@@ -25,14 +25,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: WebViewStack(
-          controller: controller,
-        ),
-        bottomNavigationBar: NavigationControls(
-          controller: controller,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: WebViewStack(
+            controller: controller,
+          ),
+          bottomNavigationBar: NavigationControls(
+            controller: controller,
+          ),
         ),
       ),
     );
